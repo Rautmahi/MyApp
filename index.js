@@ -3,11 +3,11 @@ const {connection}=require("./configs/db")
 const {postRouter}=require("./routes/Post.route")
 require("dotenv").config()
 
-// const cors=require("cors")
+const cors=require("cors")
 
 const app=express()
 app.use(express.json())
-// app.use(cors())
+app.use(cors())
 
 
 
