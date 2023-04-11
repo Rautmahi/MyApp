@@ -3,7 +3,7 @@ const {PostModel}=require("../models/Post.model")
 
 const postRouter=express.Router()
 
-postRouter.get("/retrievedata",async(req,res)=>{
+postRouter.get("/http://localhost:8080/posts/",async(req,res)=>{
    // res.send("All the posts")
     let query=req.query
     try{
@@ -47,6 +47,20 @@ postRouter.post("/postdata",async(req,res)=>{
         res.send({"msg":"Something went wrong"})
     }
 })
+
+
+// PostModel
+
+postRouter.get("/",async(req,res)=>{
+    try {
+        let all_trip = await PostModel.find();
+        res.send(all_trip);
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+
 
 
 
